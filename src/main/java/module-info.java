@@ -1,8 +1,10 @@
 module com.example.javafx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
+    requires javafx.swing;
 
 
-    opens com.example.javafx to javafx.fxml;
-    exports com.example.javafx;
+    opens com.example.paint to javafx.fxml;
+    exports com.example.paint;
 }

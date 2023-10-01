@@ -8,7 +8,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+
 import javax.imageio.ImageIO;
+
 import javafx.embed.swing.SwingFXUtils;
 
 import java.io.File;
@@ -25,13 +27,14 @@ public class PaintController {
 
     @FXML
     private CheckBox eraser;
+
     public void initialize() {
         GraphicsContext g = this.canvas.getGraphicsContext2D();
 
         canvas.setOnMouseDragged(e -> {
             double size = Double.parseDouble(brushSize.getText());
-            double x = e.getX() - size /2;
-            double y = e.getY() - size /2;
+            double x = e.getX() - size / 2;
+            double y = e.getY() - size / 2;
 
             if (this.eraser.isSelected()) {
                 g.clearRect(x, y, size, size);

@@ -32,12 +32,16 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.github.jai-imageio</groupId>
+      <artifactId>jai-imageio-core</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>  </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -58,7 +62,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.example.javafx/com.example.javafx.HelloApplication</mainClass>
+              <mainClass>com.example.javafx/com.example.paint.PaintApplication</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

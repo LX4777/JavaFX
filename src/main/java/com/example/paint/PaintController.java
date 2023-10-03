@@ -2,6 +2,7 @@ package com.example.paint;
 
 import com.example.paint.painting.Drawer;
 import com.example.paint.shapes.Circle;
+import com.example.paint.shapes.Line;
 import com.example.paint.shapes.Square;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -33,7 +34,7 @@ public class PaintController {
 
     public void initialize() {
         Drawer drawer = new Drawer();
-        drawer.run(canvas, colorPicker, new Circle());
+        drawer.run(canvas, colorPicker, new Line());
 
 //        GraphicsContext g = this.canvas.getGraphicsContext2D();
 //

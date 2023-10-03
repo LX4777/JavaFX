@@ -31,12 +31,11 @@ public abstract class ShapeWithSize extends Shape {
     }
 
     public void draw(GraphicsContext graphicsContext, ColorPicker colorPicker) {
+        super.draw(graphicsContext, colorPicker);
         this.width = (this.point2.x > this.point1.x) ? this.point2.x - this.point1.x : this.point1.x - this.point2.x;
         this.height = (this.point2.y > this.point1.y) ? this.point2.y - this.point1.y : this.point1.y - this.point2.y;
-
         this.startPoint = this.getStartPoint();
 
         System.out.println("Log - x1: " + this.point1.x + " y1: " + this.point1.y + " x2: " + this.point2.x + " y2: " + this.point2.y + " w: " + this.width + " h: " + this.height);
-        graphicsContext.setStroke(colorPicker.getValue());
     }
 }

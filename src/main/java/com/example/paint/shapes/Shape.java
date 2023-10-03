@@ -20,5 +20,7 @@ public abstract class Shape implements IShape {
         this.point2 = new Point(x, y);
     }
 
-    public abstract void draw(GraphicsContext graphicsContext, ColorPicker colorPicker);
+    public  void draw(GraphicsContext graphicsContext, ColorPicker colorPicker) {
+        graphicsContext.setStroke(colorPicker.getValue());
+    };
 }

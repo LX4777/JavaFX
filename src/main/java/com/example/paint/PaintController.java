@@ -1,11 +1,15 @@
 package com.example.paint;
 
+import com.example.paint.painting.Draw;
+import com.example.paint.shapes.Shape;
+import com.example.paint.shapes.Square;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
@@ -28,21 +32,42 @@ public class PaintController {
     @FXML
     private CheckBox eraser;
 
+
     public void initialize() {
-        GraphicsContext g = this.canvas.getGraphicsContext2D();
+        Draw draw = new Draw();
+        draw.run(canvas, colorPicker, new Square());
 
-        canvas.setOnMouseDragged(e -> {
-            double size = Double.parseDouble(brushSize.getText());
-            double x = e.getX() - size / 2;
-            double y = e.getY() - size / 2;
+//        GraphicsContext g = this.canvas.getGraphicsContext2D();
+//
+//        canvas.setOnMousePressed(e -> {
+//            double x1 = e.getX();
+//            double y1 = e.getY();
+//
+//            canvas.setOnMouseReleased(e2 -> {
+//                double x2 = e2.getX();
+//                double y2 = e2.getY();
+//                g.setStroke(colorPicker.getValue());
+//                double dx = (x2 > x1) ? x2 - x1 : x1 - x2;
+//                double dy = (y2 > y1) ? y2 - y1 : y1 - y2;
+//
+//                g.strokeRect(x1, y1, dx, dy);
+//            });
+//        });
 
-            if (this.eraser.isSelected()) {
-                g.clearRect(x, y, size, size);
-            } else {
-                g.setFill(colorPicker.getValue());
-                g.fillRect(x, y, size, size);
-            }
-        });
+//        canvas.setOnMouseDragged(e -> {
+//            double size = Double.parseDouble(brushSize.getText());
+//            double x = e.getX() - size / 2;
+//            double y = e.getY() - size / 2;
+//
+//            if (this.eraser.isSelected()) {
+//                g.clearRect(x, y, size, size);
+//            } else {
+//              //  g.setFill(colorPicker.getValue());
+//               g.setStroke(colorPicker.getValue());
+//                g.strokeRect(x, y, size, size);
+//            }
+//        });
+
     }
 
     @FXML

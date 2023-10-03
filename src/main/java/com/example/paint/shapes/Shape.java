@@ -8,6 +8,8 @@ public abstract class Shape implements IShape {
     protected double y1;
     protected double x2;
     protected double y2;
+    protected double width;
+    protected double height;
 
     public void setPoints(double x1, double y1, double x2, double y2) {
         this.x1 = x1;
@@ -15,10 +17,12 @@ public abstract class Shape implements IShape {
         this.x2 = x2;
         this.y2 = y2;
     }
+
     public void setPoint1(double x, double y) {
         this.x1 = x;
         this.y1 = y;
     }
+
     public void setPoints2(double x, double y) {
         this.x2 = x;
         this.y2 = y;

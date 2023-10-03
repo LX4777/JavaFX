@@ -6,8 +6,6 @@ import javafx.scene.control.ColorPicker;
 public abstract class Shape implements IShape {
     protected Point point1;
     protected Point point2;
-    protected double width;
-    protected double height;
 
     public void setPoints(double x1, double y1, double x2, double y2) {
         setPoint1(x1, y1);

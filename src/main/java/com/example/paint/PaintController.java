@@ -1,15 +1,13 @@
 package com.example.paint;
 
-import com.example.paint.painting.Draw;
-import com.example.paint.shapes.Shape;
+import com.example.paint.painting.Drawer;
+import com.example.paint.shapes.Circle;
 import com.example.paint.shapes.Square;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
@@ -34,8 +32,8 @@ public class PaintController {
 
 
     public void initialize() {
-        Draw draw = new Draw();
-        draw.run(canvas, colorPicker, new Square());
+        Drawer drawer = new Drawer();
+        drawer.run(canvas, colorPicker, new Circle());
 
 //        GraphicsContext g = this.canvas.getGraphicsContext2D();
 //

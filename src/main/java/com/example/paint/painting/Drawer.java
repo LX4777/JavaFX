@@ -5,7 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
 
-public class Draw {
+public class Drawer {
     public void run(Canvas canvas, ColorPicker colorPicker, Shape shape) {
         GraphicsContext g = canvas.getGraphicsContext2D();
         canvas.setOnMousePressed(e -> {

@@ -5,11 +5,10 @@ import com.example.paint.shapes.Circle;
 import com.example.paint.shapes.Line;
 import com.example.paint.shapes.Square;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 
 import javax.imageio.ImageIO;
@@ -31,10 +30,15 @@ public class PaintController {
     @FXML
     private CheckBox eraser;
 
+    @FXML
+    private ChoiceBox<String> figureSelect;
 
     public void initialize() {
         Drawer drawer = new Drawer();
-        drawer.run(canvas, colorPicker, new Line());
+        drawer.run(canvas, colorPicker, new Line(), brushSize);
+        figureSelect.setItems(FXCollections.observableArrayList("Кисть", "Линия", "Круг", "Овал", "Квадрат", "Прямоугольник"));
+        figureSelect.setValue("Кисть");
+        figureSelect.setTooltip(new Tooltip("Выберите фигуру"));
 
 //        GraphicsContext g = this.canvas.getGraphicsContext2D();
 //

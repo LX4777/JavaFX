@@ -1,7 +1,7 @@
 package com.example.paint.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ColorPicker;
+import javafx.scene.paint.Color;
 
 public abstract class ShapeWithSize extends Shape {
     protected Point startPoint;
@@ -30,8 +30,8 @@ public abstract class ShapeWithSize extends Shape {
         return new Point(x, y);
     }
 
-    public void draw(GraphicsContext graphicsContext, ColorPicker colorPicker) {
-        super.draw(graphicsContext, colorPicker);
+    public void draw(GraphicsContext graphicsContext, Color color, double size) {
+        super.draw(graphicsContext, color, size);
         this.width = (this.point2.x > this.point1.x) ? this.point2.x - this.point1.x : this.point1.x - this.point2.x;
         this.height = (this.point2.y > this.point1.y) ? this.point2.y - this.point1.y : this.point1.y - this.point2.y;
         this.startPoint = this.getStartPoint();

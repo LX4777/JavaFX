@@ -1,7 +1,7 @@
 package com.example.paint.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ColorPicker;
+import javafx.scene.paint.Color;
 
 public abstract class Shape implements IShape {
     protected Point point1;
@@ -20,7 +20,8 @@ public abstract class Shape implements IShape {
         this.point2 = new Point(x, y);
     }
 
-    public  void draw(GraphicsContext graphicsContext, ColorPicker colorPicker) {
-        graphicsContext.setStroke(colorPicker.getValue());
+    public  void draw(GraphicsContext graphicsContext, Color color, double size) {
+        graphicsContext.setLineWidth(size);
+        graphicsContext.setStroke(color);
     };
 }

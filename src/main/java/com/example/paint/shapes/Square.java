@@ -7,6 +7,6 @@ public class Square extends ShapeWithSize {
     @Override
     public void draw(GraphicsContext graphicsContext, Color color, double size) {
         super.draw(graphicsContext, color, size);
-        graphicsContext.strokeRect(startPoint.x, startPoint.y, width, height);
+        graphicsContext.strokeRect(startCoordinate.x, startCoordinate.y, width, height);
     }
 }

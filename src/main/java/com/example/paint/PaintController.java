@@ -1,9 +1,8 @@
 package com.example.paint;
 
+import com.example.paint.painting.Brush;
 import com.example.paint.painting.Drawer;
-import com.example.paint.shapes.Circle;
-import com.example.paint.shapes.Line;
-import com.example.paint.shapes.Square;
+import com.example.paint.shapes.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,16 +35,16 @@ public class PaintController {
     @FXML
     private ChoiceBox<String> figureSelect;
 
-    public void initialize() {
-        ObservableList<String> figures = FXCollections.observableArrayList("Кисть", "Линия", "Круг", "Овал", "Квадрат", "Прямоугольник");
-        figureSelect.setItems(figures);
-        figureSelect.setValue(figures.get(1));
-        figureSelect.setTooltip(new Tooltip("Выберите фигуру"));
+    private final ObservableList<String> figures = FXCollections.observableArrayList("Кисть", "Линия", "Круг", "Овал", "Квадрат", "Прямоугольник");
 
+    public void initialize() {
+        figureSelect.setItems(figures);
+        figureSelect.setValue(figures.get(0));
+        figureSelect.setTooltip(new Tooltip("Выберите фигуру"));
         GraphicsContext g = this.canvas.getGraphicsContext2D();
-        if (Objects.equals(figureSelect.getValue(), figures.get(0))) {
-            System.out.println(Objects.equals(figureSelect.getValue(), figures.get(0)));
-            canvas.setOnMouseDragged(e -> {
+
+        canvas.setOnMouseDragged(e -> {
+            if (Objects.equals(figureSelect.getValue(), figures.get(0))) {
                 double size = Double.parseDouble(brushSize.getText());
                 double x = e.getX() - size / 2;
                 double y = e.getY() - size / 2;
@@ -57,12 +56,29 @@ public class PaintController {
                     g.setStroke(colorPicker.getValue());
                     g.fillOval(x, y, size, size);
                 }
-            });
-        } else {
-            Drawer drawer = new Drawer();
-            drawer.run(canvas, colorPicker, new Line(), brushSize);
-        }
+            }
+        });
 
+
+        Shape shape = new Square();
+        this.canvas.setOnMousePressed(e -> {
+            double x1 = e.getX();
+            double y1 = e.getY();
+            shape.setPoint1(x1, y1);
+        });
+        this.canvas.setOnMouseReleased(e2 -> {
+            double x2 = e2.getX();
+            double y2 = e2.getY();
+            shape.setPoints2(x2, y2);
+
+            Drawer drawer = new Drawer();
+            drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText())));
+            drawer.setCanvas(canvas);
+
+            if (!Objects.equals(figureSelect.getValue(), figures.get(0))) {
+                drawer.draw(shape);
+            }
+        });
     }
 
     @FXML

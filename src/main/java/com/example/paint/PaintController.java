@@ -33,9 +33,9 @@ public class PaintController {
     private CheckBox eraser;
 
     @FXML
-    private ChoiceBox<String> figureSelect;
+    private ChoiceBox<Shapes> figureSelect;
 
-    private final ObservableList<String> figures = FXCollections.observableArrayList("Кисть", "Линия", "Круг", "Овал", "Квадрат", "Прямоугольник");
+    private final ObservableList<Shapes> figures = FXCollections.observableArrayList(Shapes.values());
 
     public void initialize() {
         figureSelect.setItems(figures);
@@ -58,7 +58,6 @@ public class PaintController {
                 }
             }
         });
-
 
         Shape shape = new Square();
         this.canvas.setOnMousePressed(e -> {

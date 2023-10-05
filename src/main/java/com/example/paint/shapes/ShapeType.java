@@ -1,6 +1,6 @@
 package com.example.paint.shapes;
 
-public enum Shapes {
+public enum ShapeType {
     BRUSH("Кисть"),
     LINE("Линия"),
     CIRCLE("Круг"),
@@ -10,7 +10,7 @@ public enum Shapes {
 
     private final String label;
 
-    Shapes(String label) {
+    ShapeType(String label) {
         this.label = label;
     }
 

@@ -22,7 +22,9 @@ public class Drawer {
     }
 
     public void draw(Shape shape) {
-        GraphicsContext g = this.canvas.getGraphicsContext2D();
-        shape.draw(g, this.brush.getColor(), brush.getWidth());
+        GraphicsContext graphicsContext = this.canvas.getGraphicsContext2D();
+        graphicsContext.setLineWidth(this.brush.getWidth());
+        graphicsContext.setStroke(this.brush.getColor());
+        shape.draw(graphicsContext, this.brush.getColor(), brush.getWidth());
     }
 }

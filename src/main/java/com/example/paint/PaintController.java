@@ -33,9 +33,12 @@ public class PaintController {
     private CheckBox eraser;
 
     @FXML
-    private ChoiceBox<Shapes> figureSelect;
+    private CheckBox filling;
 
-    private final ObservableList<Shapes> figures = FXCollections.observableArrayList(Shapes.values());
+    @FXML
+    private ChoiceBox<ShapeType> figureSelect;
+
+    private final ObservableList<ShapeType> figures = FXCollections.observableArrayList(ShapeType.values());
 
     public void initialize() {
         figureSelect.setItems(figures);
@@ -59,12 +62,14 @@ public class PaintController {
             }
         });
 
-        Shape shape = new Square();
+        Shape shape = ShapeFactory.createShape(figureSelect.getValue());
+
         this.canvas.setOnMousePressed(e -> {
             double x1 = e.getX();
             double y1 = e.getY();
             shape.setPoint1(x1, y1);
         });
+
         this.canvas.setOnMouseReleased(e2 -> {
             double x2 = e2.getX();
             double y2 = e2.getY();

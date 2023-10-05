@@ -20,8 +20,6 @@ public abstract class Shape implements IShape {
         this.coordinate2 = new Coordinate(x, y);
     }
 
-    public  void draw(GraphicsContext graphicsContext, Color color, double size) {
-        graphicsContext.setLineWidth(size);
-        graphicsContext.setStroke(color);
-    };
+    public void draw(GraphicsContext graphicsContext, Color color, double size) {
+    }
 }

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600" prefWidth="600" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="com.example.paint.PaintController">
+<BorderPane prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.PaintController">
     <top>
         <VBox>
             <MenuBar>
@@ -28,11 +28,12 @@
                     <ColorPicker fx:id="colorPicker" />
                     <CheckBox fx:id="eraser" text="Резинка" />
                 </HBox>
+            <CheckBox mnemonicParsing="false" text="Заливка" />
             <ChoiceBox fx:id="figureSelect" prefWidth="150.0" />
             </ToolBar>
         </VBox>
     </top>
     <center>
-        <Canvas fx:id="canvas" height="600" width="600" />
+        <Canvas fx:id="canvas" height="600" width="838.0" />
     </center>
 </BorderPane>

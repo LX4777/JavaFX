@@ -62,25 +62,24 @@ public class PaintController {
             }
         });
 
-        Shape shape = ShapeFactory.createShape(figureSelect.getValue());
+        Drawer drawer = new Drawer();
 
         this.canvas.setOnMousePressed(e -> {
             double x1 = e.getX();
             double y1 = e.getY();
-            shape.setPoint1(x1, y1);
+            drawer.setPoint1(new Coordinate(x1, y1));
         });
 
         this.canvas.setOnMouseReleased(e2 -> {
             double x2 = e2.getX();
             double y2 = e2.getY();
-            shape.setPoints2(x2, y2);
+            drawer.setPoint2(new Coordinate(x2, y2));
 
-            Drawer drawer = new Drawer();
             drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText())));
             drawer.setCanvas(canvas);
 
             if (!Objects.equals(figureSelect.getValue(), figures.get(0))) {
-                drawer.draw(shape);
+                drawer.draw(figureSelect.getValue());
             }
         });
     }

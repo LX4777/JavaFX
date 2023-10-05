@@ -10,21 +10,21 @@ public abstract class ShapeWithSize extends Shape {
 
     protected Coordinate getStartPoint() {
         double x, y;
-        if (this.coordinate2.x > this.coordinate1.x) {
-            if (this.coordinate2.y > this.coordinate1.y) {
-                x = this.coordinate1.x;
-                y = this.coordinate1.y;
+        if (this.coordinate2.getX() > this.coordinate1.getX()) {
+            if (this.coordinate2.getY() > this.coordinate1.getY()) {
+                x = this.coordinate1.getX();
+                y = this.coordinate1.getY();
             } else {
-                x = this.coordinate1.x;
-                y = this.coordinate2.y;
+                x = this.coordinate1.getX();
+                y = this.coordinate2.getY();
             }
         } else {
-            if (this.coordinate2.y > this.coordinate1.y) {
-                x = this.coordinate2.x;
-                y = this.coordinate1.y;
+            if (this.coordinate2.getY() > this.coordinate1.getY()) {
+                x = this.coordinate2.getX();
+                y = this.coordinate1.getY();
             } else {
-                x = this.coordinate2.x;
-                y = this.coordinate2.y;
+                x = this.coordinate2.getX();
+                y = this.coordinate2.getY();
             }
         }
         return new Coordinate(x, y);
@@ -32,10 +32,10 @@ public abstract class ShapeWithSize extends Shape {
 
     public void draw(GraphicsContext graphicsContext, Color color, double size) {
         super.draw(graphicsContext, color, size);
-        this.width = (this.coordinate2.x > this.coordinate1.x) ? this.coordinate2.x - this.coordinate1.x : this.coordinate1.x - this.coordinate2.x;
-        this.height = (this.coordinate2.y > this.coordinate1.y) ? this.coordinate2.y - this.coordinate1.y : this.coordinate1.y - this.coordinate2.y;
+        this.width = (this.coordinate2.getX() > this.coordinate1.getX()) ? this.coordinate2.getX() - this.coordinate1.getX() : this.coordinate1.getX() - this.coordinate2.getX();
+        this.height = (this.coordinate2.getY() > this.coordinate1.getY()) ? this.coordinate2.getY() - this.coordinate1.getY() : this.coordinate1.getY() - this.coordinate2.getY();
         this.startCoordinate = this.getStartPoint();
 
-        System.out.println("Log - x1: " + this.coordinate1.x + " y1: " + this.coordinate1.y + " x2: " + this.coordinate2.x + " y2: " + this.coordinate2.y + " w: " + this.width + " h: " + this.height);
+        System.out.println("Log - x1: " + this.coordinate1.getX() + " y1: " + this.coordinate1.getY() + " x2: " + this.coordinate2.getX() + " y2: " + this.coordinate2.getY() + " w: " + this.width + " h: " + this.height);
     }
 }

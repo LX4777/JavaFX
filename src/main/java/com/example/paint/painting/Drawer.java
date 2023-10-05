@@ -1,9 +1,6 @@
 package com.example.paint.painting;
 
-import com.example.paint.shapes.Coordinate;
-import com.example.paint.shapes.Shape;
-import com.example.paint.shapes.ShapeFactory;
-import com.example.paint.shapes.ShapeType;
+import com.example.paint.shapes.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -39,8 +36,8 @@ public class Drawer {
 
     public void draw(ShapeType shapeType) {
         Shape shape = this.shapeFactory.createShape(shapeType);
-        shape.setPoint1(this.point1.x, this.point1.y);
-        shape.setPoints2(this.point2.x, this.point2.y);
+        shape.setPoint1(this.point1.getX(), this.point1.getY());
+        shape.setPoint2(this.point2.getX(), this.point2.getY());
         GraphicsContext graphicsContext = this.canvas.getGraphicsContext2D();
         graphicsContext.setLineWidth(this.brush.getWidth());
         graphicsContext.setStroke(this.brush.getColor());

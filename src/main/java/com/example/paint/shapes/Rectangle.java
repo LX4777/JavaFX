@@ -7,6 +7,6 @@ public class Rectangle extends ShapeWithSize {
     @Override
     public void draw(GraphicsContext graphicsContext, Color color, double size) {
         super.draw(graphicsContext, color, size);
-        graphicsContext.strokeRect(startCoordinate.x, startCoordinate.y, width, height);
+        graphicsContext.strokeRect(startCoordinate.getX(), startCoordinate.getY(), width, height);
     }
 }

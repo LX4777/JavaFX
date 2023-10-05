@@ -47,18 +47,19 @@ public class PaintController {
         GraphicsContext g = this.canvas.getGraphicsContext2D();
 
         canvas.setOnMouseDragged(e -> {
-            if (Objects.equals(figureSelect.getValue(), figures.get(0))) {
-                double size = Double.parseDouble(brushSize.getText());
-                double x = e.getX() - size / 2;
-                double y = e.getY() - size / 2;
+            double size = Double.parseDouble(brushSize.getText());
+            double x = e.getX() - size / 2;
+            double y = e.getY() - size / 2;
 
-                if (this.eraser.isSelected()) {
-                    g.clearRect(x, y, size, size);
-                } else {
-                    g.setFill(colorPicker.getValue());
-                    g.setStroke(colorPicker.getValue());
-                    g.fillOval(x, y, size, size);
-                }
+            if (this.eraser.isSelected()) {
+                g.clearRect(x, y, size, size);
+                return;
+            }
+
+            if (Objects.equals(figureSelect.getValue(), figures.get(0))) {
+                g.setFill(colorPicker.getValue());
+                g.setStroke(colorPicker.getValue());
+                g.fillOval(x, y, size, size);
             }
         });
 
@@ -71,6 +72,10 @@ public class PaintController {
         });
 
         this.canvas.setOnMouseReleased(e2 -> {
+            if (this.eraser.isSelected()) {
+                return;
+            }
+
             double x2 = e2.getX();
             double y2 = e2.getY();
             drawer.setPoint2(new Coordinate(x2, y2));

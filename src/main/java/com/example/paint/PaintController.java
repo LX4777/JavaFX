@@ -56,7 +56,7 @@ public class PaintController {
                 return;
             }
 
-            if (Objects.equals(figureSelect.getValue(), figures.get(0))) {
+            if (Objects.equals(figureSelect.getValue(), ShapeType.PENCIL)) {
                 g.setFill(colorPicker.getValue());
                 g.setStroke(colorPicker.getValue());
                 g.fillOval(x, y, size, size);
@@ -72,6 +72,7 @@ public class PaintController {
         });
 
         this.canvas.setOnMouseReleased(e2 -> {
+            System.out.println(this.canvas.getUserData());
             if (this.eraser.isSelected()) {
                 return;
             }
@@ -83,7 +84,7 @@ public class PaintController {
             drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText())));
             drawer.setCanvas(canvas);
 
-            if (!Objects.equals(figureSelect.getValue(), figures.get(0))) {
+            if (!Objects.equals(figureSelect.getValue(), ShapeType.PENCIL)) {
                 drawer.draw(figureSelect.getValue());
             }
         });

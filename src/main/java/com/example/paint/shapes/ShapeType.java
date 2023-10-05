@@ -1,7 +1,7 @@
 package com.example.paint.shapes;
 
 public enum ShapeType {
-    BRUSH("Кисть"),
+    PENCIL("Карандаш"),
     LINE("Линия"),
     CIRCLE("Круг"),
     OVAL("Овал"),

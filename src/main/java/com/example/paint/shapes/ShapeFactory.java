@@ -1,25 +1,15 @@
 package com.example.paint.shapes;
 
 public class ShapeFactory {
-    public static Shape createShape (ShapeType type) {
-        Shape shape = null;
+    public Shape createShape (ShapeType type) {
 
-        switch (type) {
-            case BRUSH:
-                shape = new Square();
-                break;
-            case CIRCLE:
-                shape = new Circle();
-            case LINE:
-                shape = new Line();
-            case OVAL:
-                shape = new Oval();
-            case RECTANGLE:
-                shape = new Rectangle();
-            case SQUARE:
-                shape = new Square();
-        }
-
-        return shape;
+        return switch (type) {
+            case BRUSH -> new Square(); //TODO: Переделать
+            case CIRCLE -> new Circle();
+            case LINE -> new Line();
+            case OVAL -> new Oval();
+            case RECTANGLE -> new Rectangle();
+            case SQUARE -> new Square();
+        };
     }
 }

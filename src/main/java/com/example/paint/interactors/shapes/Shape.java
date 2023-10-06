@@ -20,5 +20,5 @@ public abstract class Shape implements IDrawable {
         this.coordinate2 = new Coordinate(x, y);
     }
 
-    public abstract void draw(GraphicsContext graphicsContext, Color color, double size);
+    public abstract void draw(GraphicsContext graphicsContext);
 }

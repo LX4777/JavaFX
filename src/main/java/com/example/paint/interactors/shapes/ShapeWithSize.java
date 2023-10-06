@@ -30,7 +30,7 @@ public abstract class ShapeWithSize extends Shape {
         return new Coordinate(x, y);
     }
 
-    public void draw(GraphicsContext graphicsContext, Color color, double size) {
+    public void draw(GraphicsContext graphicsContext) {
         this.width = (this.coordinate2.getX() > this.coordinate1.getX()) ? this.coordinate2.getX() - this.coordinate1.getX() : this.coordinate1.getX() - this.coordinate2.getX();
         this.height = (this.coordinate2.getY() > this.coordinate1.getY()) ? this.coordinate2.getY() - this.coordinate1.getY() : this.coordinate1.getY() - this.coordinate2.getY();
         this.startCoordinate = this.getStartPoint();

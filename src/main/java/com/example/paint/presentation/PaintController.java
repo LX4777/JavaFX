@@ -51,10 +51,10 @@ public class PaintController {
             drawer.setPoint1(new Coordinate(e.getX(), e.getY()));
         });
 
-        this.canvas.setOnMouseReleased(e2 -> {
+        this.canvas.setOnMouseReleased(e -> {
             if (this.eraser.isSelected()) return;
 
-            drawer.setPoint2(new Coordinate(e2.getX(), e2.getY()));
+            drawer.setPoint2(new Coordinate(e.getX(), e.getY()));
             drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText())));
             drawer.setCanvas(canvas);
 

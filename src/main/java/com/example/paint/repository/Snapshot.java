@@ -7,8 +7,8 @@ import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import java.io.File;
 
-public class MakeSnapshot {
-    public static void run (Canvas canvas) {
+public class Snapshot {
+    public static void make(Canvas canvas) {
         try {
             Image snapshot = canvas.snapshot(null, null);
             ImageIO.write(SwingFXUtils.fromFXImage(snapshot, null), "png", new File("saves/save.png"));

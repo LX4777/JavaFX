@@ -6,7 +6,7 @@ import com.example.paint.interactors.painting.Drawer;
 import com.example.paint.interactors.shapes.*;
 import com.example.paint.interactors.tools.Eraser;
 import com.example.paint.interactors.tools.Pencil;
-import com.example.paint.repository.MakeSnapshot;
+import com.example.paint.repository.Snapshot;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -66,7 +66,7 @@ public class PaintController {
 
     @FXML
     public void onSnapshot() {
-        MakeSnapshot.run(canvas);
+        Snapshot.make(canvas);
     }
 
     @FXML

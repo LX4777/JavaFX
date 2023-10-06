@@ -3,7 +3,7 @@ package com.example.paint.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public abstract class Shape implements IShape {
+public abstract class Shape implements IDrawable {
     protected Coordinate coordinate1;
     protected Coordinate coordinate2;
 
@@ -20,6 +20,5 @@ public abstract class Shape implements IShape {
         this.coordinate2 = new Coordinate(x, y);
     }
 
-    public void draw(GraphicsContext graphicsContext, Color color, double size) {
-    }
+    public abstract void draw(GraphicsContext graphicsContext, Color color, double size);
 }

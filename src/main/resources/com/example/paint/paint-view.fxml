@@ -18,7 +18,7 @@
         <VBox>
             <MenuBar>
                 <Menu text="Файл">
-                    <MenuItem onAction="#onSave" text="Сохранить" />
+                    <MenuItem onAction="#onSnapshot" text="Скриншот" />
                     <MenuItem onAction="#onExit" text="Выход" />
                 </Menu>
             </MenuBar>

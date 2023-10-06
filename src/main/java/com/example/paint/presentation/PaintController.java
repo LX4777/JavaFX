@@ -3,6 +3,7 @@ package com.example.paint.presentation;
 import com.example.paint.interactors.painting.Brush;
 import com.example.paint.interactors.painting.Drawer;
 import com.example.paint.interactors.shapes.*;
+import com.example.paint.repository.MakeSnapshot;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -90,13 +91,8 @@ public class PaintController {
     }
 
     @FXML
-    public void onSave() {
-        try {
-            Image snapshot = canvas.snapshot(null, null);
-            ImageIO.write(SwingFXUtils.fromFXImage(snapshot, null), "png", new File("saves/save.png"));
-        } catch (Exception e) {
-            System.out.println("Не удалось сохранить: " + e.getMessage());
-        }
+    public void onSnapshot() {
+        MakeSnapshot.run(canvas);
     }
 
     @FXML

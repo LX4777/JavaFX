@@ -33,7 +33,7 @@ public class PaintController {
     private CheckBox eraser;
 
     @FXML
-    private CheckBox filling;
+    private CheckBox pencil;
 
     @FXML
     private ChoiceBox<ShapeType> figureSelect;
@@ -56,7 +56,7 @@ public class PaintController {
                 return;
             }
 
-            if (Objects.equals(figureSelect.getValue(), ShapeType.PENCIL)) {
+            if (pencil.isSelected()) {
                 g.setFill(colorPicker.getValue());
                 g.setStroke(colorPicker.getValue());
                 g.fillOval(x, y, size, size);
@@ -84,7 +84,7 @@ public class PaintController {
             drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText())));
             drawer.setCanvas(canvas);
 
-            if (!Objects.equals(figureSelect.getValue(), ShapeType.PENCIL)) {
+            if (!pencil.isSelected()) {
                 drawer.draw(figureSelect.getValue());
             }
         });

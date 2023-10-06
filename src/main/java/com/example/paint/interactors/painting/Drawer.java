@@ -1,6 +1,6 @@
-package com.example.paint.painting;
+package com.example.paint.interactors.painting;
 
-import com.example.paint.shapes.*;
+import com.example.paint.interactors.shapes.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -41,6 +41,6 @@ public class Drawer {
         GraphicsContext graphicsContext = this.canvas.getGraphicsContext2D();
         graphicsContext.setLineWidth(this.brush.getWidth());
         graphicsContext.setStroke(this.brush.getColor());
-        shape.draw(graphicsContext, this.brush.getColor(), brush.getWidth());
+        shape.draw(graphicsContext);
     }
 }

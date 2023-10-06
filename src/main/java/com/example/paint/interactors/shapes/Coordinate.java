@@ -1,4 +1,4 @@
-package com.example.paint.shapes;
+package com.example.paint.interactors.shapes;
 
 public class Coordinate {
     private double x;

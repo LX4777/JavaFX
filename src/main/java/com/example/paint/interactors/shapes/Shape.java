@@ -1,4 +1,4 @@
-package com.example.paint.shapes;
+package com.example.paint.interactors.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -20,5 +20,5 @@ public abstract class Shape implements IDrawable {
         this.coordinate2 = new Coordinate(x, y);
     }
 
-    public abstract void draw(GraphicsContext graphicsContext, Color color, double size);
+    public abstract void draw(GraphicsContext graphicsContext);
 }

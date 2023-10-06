@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.PaintController">
+<BorderPane prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.presentation.PaintController">
     <top>
         <VBox>
             <MenuBar>
                 <Menu text="Файл">
-                    <MenuItem onAction="#onSave" text="Сохранить" />
+                    <MenuItem onAction="#onSnapshot" text="Скриншот" />
                     <MenuItem onAction="#onExit" text="Выход" />
                 </Menu>
             </MenuBar>
@@ -29,7 +29,7 @@
                     <CheckBox fx:id="eraser" text="Резинка" />
                 </HBox>
             <CheckBox fx:id="pencil" mnemonicParsing="false" text="Карандаш" />
-            <ChoiceBox fx:id="figureSelect" prefWidth="150.0" />
+            <ChoiceBox fx:id="shapesSelect" prefWidth="150.0" />
             </ToolBar>
         </VBox>
     </top>

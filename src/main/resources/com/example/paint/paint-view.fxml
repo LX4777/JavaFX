@@ -29,7 +29,7 @@
                     <CheckBox fx:id="eraser" text="Резинка" />
                 </HBox>
             <CheckBox fx:id="pencil" mnemonicParsing="false" text="Карандаш" />
-            <ChoiceBox fx:id="figureSelect" prefWidth="150.0" />
+            <ChoiceBox fx:id="shapesSelect" prefWidth="150.0" />
             </ToolBar>
         </VBox>
     </top>

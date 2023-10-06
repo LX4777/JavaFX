@@ -1,13 +1,13 @@
-package com.example.paint.shapes;
+package com.example.paint.interactors.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Square extends ShapeWithSize {
+public class Circle extends ShapeWithSize {
     @Override
     public void draw(GraphicsContext graphicsContext, Color color, double size) {
         super.draw(graphicsContext, color, size);
         this.width = this.height;
-        graphicsContext.strokeRect(startCoordinate.getX(), startCoordinate.getY(), width, height);
+        graphicsContext.strokeOval(startCoordinate.getX(), startCoordinate.getY(), width, height);
     }
 }

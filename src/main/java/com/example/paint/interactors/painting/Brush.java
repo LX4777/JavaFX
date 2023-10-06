@@ -1,4 +1,4 @@
-package com.example.paint.painting;
+package com.example.paint.interactors.painting;
 
 import javafx.scene.paint.Color;
 

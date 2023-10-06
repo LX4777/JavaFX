@@ -1,6 +1,6 @@
-package com.example.paint.painting;
+package com.example.paint.interactors.painting;
 
-import com.example.paint.shapes.*;
+import com.example.paint.interactors.shapes.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 

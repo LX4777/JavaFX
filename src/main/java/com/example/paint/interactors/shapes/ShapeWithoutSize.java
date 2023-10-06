@@ -1,4 +1,4 @@
-package com.example.paint.shapes;
+package com.example.paint.interactors.shapes;
 
 public abstract class ShapeWithoutSize extends Shape {
 

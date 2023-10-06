@@ -1,8 +1,8 @@
-package com.example.paint;
+package com.example.paint.presentation;
 
-import com.example.paint.painting.Brush;
-import com.example.paint.painting.Drawer;
-import com.example.paint.shapes.*;
+import com.example.paint.interactors.painting.Brush;
+import com.example.paint.interactors.painting.Drawer;
+import com.example.paint.interactors.shapes.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +17,6 @@ import javax.imageio.ImageIO;
 import javafx.embed.swing.SwingFXUtils;
 
 import java.io.File;
-import java.util.Objects;
 
 public class PaintController {
     @FXML

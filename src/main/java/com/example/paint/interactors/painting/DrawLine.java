@@ -5,8 +5,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
 public class DrawLine extends Draw<Line> {
+    javafx.scene.shape.Line line = new javafx.scene.shape.Line();
     public Shape draw(Pane pane, Line shape, Brush brush) {
-        javafx.scene.shape.Line line = new javafx.scene.shape.Line();
         line.setStartX(shape.getCoordinate1().getX());
         line.setStartY(shape.getCoordinate1().getY());
         line.setEndX(shape.getCoordinate2().getX());

@@ -5,8 +5,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
 public class DrawOval extends Draw<Oval> {
+    javafx.scene.shape.Ellipse ellipse = new javafx.scene.shape.Ellipse();
+    @Override
     public Shape draw(Pane pane, Oval shape, Brush brush) {
-        javafx.scene.shape.Ellipse ellipse = new javafx.scene.shape.Ellipse();
         ellipse.setCenterX(shape.getStartCoordinate().getX());
         ellipse.setCenterY(shape.getStartCoordinate().getY());
         ellipse.setRadiusX(shape.getWidth() / 2);

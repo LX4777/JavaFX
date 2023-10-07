@@ -4,17 +4,14 @@ import com.example.paint.interactors.actions.InitializeShapesSelectAction;
 import com.example.paint.interactors.painting.Brush;
 import com.example.paint.interactors.painting.Drawer;
 import com.example.paint.interactors.shapes.*;
-import com.example.paint.interactors.tools.Eraser;
-import com.example.paint.interactors.tools.Pencil;
-import com.example.paint.repository.Snapshot;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 
 public class PaintController {
     @FXML
-    private Canvas canvas;
+    private Pane pane;
 
     @FXML
     private ColorPicker colorPicker;
@@ -23,10 +20,7 @@ public class PaintController {
     private TextField brushSize;
 
     @FXML
-    private CheckBox eraser;
-
-    @FXML
-    private CheckBox pencil;
+    private CheckBox fill;
 
     @FXML
     private ChoiceBox<ShapeType> shapesSelect;
@@ -34,39 +28,27 @@ public class PaintController {
     public void initialize() {
         InitializeShapesSelectAction.start(shapesSelect);
 
-        canvas.setOnMouseDragged(e -> {
-            if (this.eraser.isSelected()) {
-                Eraser.start(canvas, e.getX(), e.getY(), Double.parseDouble(brushSize.getText()));
-                return;
-            }
-
-            if (pencil.isSelected()) {
-                Pencil.start(canvas, e.getX(), e.getY(), Double.parseDouble(brushSize.getText()), colorPicker.getValue());
-            }
+        pane.setOnMouseDragged(e -> {
         });
 
         Drawer drawer = new Drawer();
 
-        this.canvas.setOnMousePressed(e -> {
+        this.pane.setOnMousePressed(e -> {
             drawer.setPoint1(new Coordinate(e.getX(), e.getY()));
         });
 
-        this.canvas.setOnMouseReleased(e -> {
-            if (this.eraser.isSelected()) return;
-
+        this.pane.setOnMouseReleased(e -> {
             drawer.setPoint2(new Coordinate(e.getX(), e.getY()));
-            drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText())));
-            drawer.setCanvas(canvas);
+            drawer.setBrush(new Brush(colorPicker.getValue(), Double.parseDouble(brushSize.getText()), fill.isSelected()));
+            drawer.setPane(pane);
 
-            if (!pencil.isSelected()) {
-                drawer.draw(shapesSelect.getValue());
-            }
+            drawer.draw(shapesSelect.getValue());
         });
     }
 
     @FXML
     public void onSnapshot() {
-        Snapshot.make(canvas);
+//        Snapshot.make(canvas);
     }
 
     @FXML

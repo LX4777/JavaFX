@@ -1,7 +1,7 @@
 package com.example.paint.interactors.shapes;
 
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
+import com.example.paint.interactors.painting.Brush;
+import javafx.scene.layout.Pane;
 
 public abstract class Shape implements IDrawable {
     protected Coordinate coordinate1;
@@ -12,6 +12,28 @@ public abstract class Shape implements IDrawable {
         setPoint2(x2, y2);
     }
 
+    protected Coordinate getStartPoint() {
+        double x, y;
+        if (this.coordinate2.getX() > this.coordinate1.getX()) {
+            if (this.coordinate2.getY() > this.coordinate1.getY()) {
+                x = this.coordinate1.getX();
+                y = this.coordinate1.getY();
+            } else {
+                x = this.coordinate1.getX();
+                y = this.coordinate2.getY();
+            }
+        } else {
+            if (this.coordinate2.getY() > this.coordinate1.getY()) {
+                x = this.coordinate2.getX();
+                y = this.coordinate1.getY();
+            } else {
+                x = this.coordinate2.getX();
+                y = this.coordinate2.getY();
+            }
+        }
+        return new Coordinate(x, y);
+    }
+
     public void setPoint1(double x, double y) {
         this.coordinate1 = new Coordinate(x, y);
     }
@@ -19,6 +41,4 @@ public abstract class Shape implements IDrawable {
     public void setPoint2(double x, double y) {
         this.coordinate2 = new Coordinate(x, y);
     }
-
-    public abstract void draw(GraphicsContext graphicsContext);
 }

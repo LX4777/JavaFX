@@ -1,8 +1,8 @@
 package com.example.paint.interactors.shapes;
 
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
+import com.example.paint.interactors.painting.Brush;
+import javafx.scene.layout.Pane;
 
 public interface IDrawable {
-    void draw(GraphicsContext graphicsContext);
+    void draw(Pane pane, Brush brush);
 }

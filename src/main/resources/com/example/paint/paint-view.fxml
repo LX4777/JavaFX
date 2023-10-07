@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ColorPicker?>
@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.presentation.PaintController">
+<BorderPane prefHeight="600" prefWidth="665.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.presentation.PaintController">
     <top>
         <VBox>
             <MenuBar>
@@ -33,7 +33,7 @@
             </ToolBar>
         </VBox>
     </top>
-    <center>
-        <Canvas fx:id="canvas" height="600" width="838.0" />
-    </center>
+   <center>
+      <Group fx:id="root" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

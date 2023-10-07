@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Shape;
 
-public abstract class ShapeDragging<T extends Shape> implements IDragging {
+public abstract class ShapeDragging<T> implements IDragging {
     double orgSceneX, orgSceneY;
     double offsetX, offsetY;
 

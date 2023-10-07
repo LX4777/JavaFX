@@ -1,5 +1,6 @@
 package com.example.paint.interactors.shapes;
 
+import com.example.paint.interactors.dragging.EllipseDragging;
 import com.example.paint.interactors.painting.Brush;
 import javafx.scene.layout.Pane;
 
@@ -16,6 +17,10 @@ public class Oval extends ShapeWithSize {
         ellipse.setStroke(brush.getColor());
         ellipse.setStrokeWidth(brush.getWidth());
         ellipse.relocate(this.startCoordinate.getX(), this.startCoordinate.getY());
+
+        EllipseDragging ellipseDragging = new EllipseDragging();
+        ellipseDragging.setDragAndDrop(ellipse);
+
         pane.getChildren().add(ellipse);
     }
 }

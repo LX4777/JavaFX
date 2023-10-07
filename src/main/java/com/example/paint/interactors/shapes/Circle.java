@@ -1,5 +1,6 @@
 package com.example.paint.interactors.shapes;
 
+import com.example.paint.interactors.dragging.CircleDragging;
 import com.example.paint.interactors.painting.Brush;
 import javafx.scene.layout.Pane;
 
@@ -12,6 +13,8 @@ public class Circle extends ShapeWithSize {
         circle.setStroke(brush.getColor());
         circle.setStrokeWidth(brush.getWidth());
         circle.relocate(this.startCoordinate.getX(), this.startCoordinate.getY());
+        CircleDragging circleDragging = new CircleDragging();
+        circleDragging.setDragAndDrop(circle);
         pane.getChildren().add(circle);
     }
 }

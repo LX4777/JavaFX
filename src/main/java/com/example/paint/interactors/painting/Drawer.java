@@ -1,5 +1,7 @@
 package com.example.paint.interactors.painting;
 
+import com.example.paint.interactors.dragging.DraggingFactory;
+import com.example.paint.interactors.dragging.IDragging;
 import com.example.paint.interactors.shapes.Coordinate;
 import com.example.paint.interactors.shapes.Shape;
 import com.example.paint.interactors.shapes.ShapeFactory;
@@ -40,6 +42,9 @@ public class Drawer {
         Shape shape = this.shapeFactory.createShape(shapeType);
         shape.setPoint1(this.point1.getX(), this.point1.getY());
         shape.setPoint2(this.point2.getX(), this.point2.getY());
+
+        IDragging dragging = DraggingFactory.createDraggingEffect(shapeType);
+
 //        GraphicsContext graphicsContext = this.pane.getGraphicsContext2D();
 //        graphicsContext.setLineWidth(this.brush.getWidth());
 //        graphicsContext.setStroke(this.brush.getColor());

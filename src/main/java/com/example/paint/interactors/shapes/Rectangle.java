@@ -1,5 +1,6 @@
 package com.example.paint.interactors.shapes;
 
+import com.example.paint.interactors.dragging.RectangleDragging;
 import com.example.paint.interactors.painting.Brush;
 import javafx.scene.layout.Pane;
 
@@ -11,6 +12,8 @@ public class Rectangle extends ShapeWithSize {
         rectangle.setStroke(brush.getColor());
         rectangle.setStrokeWidth(brush.getWidth());
         rectangle.relocate(this.startCoordinate.getX(), this.startCoordinate.getY());
+        RectangleDragging rectangleDragging = new RectangleDragging();
+        rectangleDragging.setDragAndDrop(rectangle);
         pane.getChildren().add(rectangle);
     }
 }

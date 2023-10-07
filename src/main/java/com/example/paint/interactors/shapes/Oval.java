@@ -3,11 +3,11 @@ package com.example.paint.interactors.shapes;
 import com.example.paint.interactors.dragging.EllipseDragging;
 import com.example.paint.interactors.painting.Brush;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Shape;
 
 public class Oval extends ShapeWithSize {
     @Override
-    public void draw(Pane pane, Brush brush) {
-        super.draw(pane, brush);
+    public Shape draw(Pane pane, Brush brush) {
         javafx.scene.shape.Ellipse ellipse = new javafx.scene.shape.Ellipse();
         ellipse.setCenterX(this.startCoordinate.getX());
         ellipse.setCenterY(this.startCoordinate.getY());
@@ -18,9 +18,7 @@ public class Oval extends ShapeWithSize {
         ellipse.setStrokeWidth(brush.getWidth());
         ellipse.relocate(this.startCoordinate.getX(), this.startCoordinate.getY());
 
-        EllipseDragging ellipseDragging = new EllipseDragging();
-        ellipseDragging.setDragAndDrop(ellipse);
-
         pane.getChildren().add(ellipse);
+        return ellipse;
     }
 }

@@ -1,12 +1,14 @@
 package com.example.paint.interactors.painting;
 
-import com.example.paint.interactors.shapes.*;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import com.example.paint.interactors.shapes.Coordinate;
+import com.example.paint.interactors.shapes.Shape;
+import com.example.paint.interactors.shapes.ShapeFactory;
+import com.example.paint.interactors.shapes.ShapeType;
+import javafx.scene.layout.Pane;
 
 public class Drawer {
     protected Brush brush;
-    protected Canvas canvas;
+    protected Pane pane;
     protected ShapeFactory shapeFactory;
 
     protected Coordinate point1;
@@ -14,7 +16,7 @@ public class Drawer {
 
     public Drawer() {
         this.brush = new Brush();
-        this.canvas = new Canvas();
+        this.pane = new Pane();
         this.shapeFactory = new ShapeFactory();
     }
 
@@ -30,17 +32,17 @@ public class Drawer {
         this.brush = brush;
     }
 
-    public void setCanvas(Canvas canvas) {
-        this.canvas = canvas;
+    public void setPane(Pane pane) {
+        this.pane = pane;
     }
 
     public void draw(ShapeType shapeType) {
         Shape shape = this.shapeFactory.createShape(shapeType);
         shape.setPoint1(this.point1.getX(), this.point1.getY());
         shape.setPoint2(this.point2.getX(), this.point2.getY());
-        GraphicsContext graphicsContext = this.canvas.getGraphicsContext2D();
-        graphicsContext.setLineWidth(this.brush.getWidth());
-        graphicsContext.setStroke(this.brush.getColor());
-        shape.draw(graphicsContext);
+//        GraphicsContext graphicsContext = this.pane.getGraphicsContext2D();
+//        graphicsContext.setLineWidth(this.brush.getWidth());
+//        graphicsContext.setStroke(this.brush.getColor());
+        shape.draw(pane, brush);
     }
 }

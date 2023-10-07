@@ -1,8 +1,5 @@
 package com.example.paint.interactors.shapes;
 
-import com.example.paint.interactors.painting.Brush;
-import javafx.scene.layout.Pane;
-
 public abstract class Shape implements IDrawable {
     protected Coordinate coordinate1;
     protected Coordinate coordinate2;
@@ -34,11 +31,11 @@ public abstract class Shape implements IDrawable {
         return new Coordinate(x, y);
     }
 
-    public void setPoint1(double x, double y) {
+    private void setPoint1(double x, double y) {
         this.coordinate1 = new Coordinate(x, y);
     }
 
-    public void setPoint2(double x, double y) {
+    private void setPoint2(double x, double y) {
         this.coordinate2 = new Coordinate(x, y);
     }
 }

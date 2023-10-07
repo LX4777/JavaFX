@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.presentation.PaintController">
+<BorderPane prefHeight="600" prefWidth="732.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.paint.presentation.PaintController">
     <top>
         <VBox>
             <MenuBar>
@@ -28,11 +28,12 @@
                     <ColorPicker fx:id="colorPicker" />
                <ChoiceBox fx:id="shapesSelect" prefWidth="150.0" />
                     <CheckBox fx:id="fill" text="Заливка" />
+               <CheckBox fx:id="drag" text="Перестаскивание" />
                 </HBox>
             </ToolBar>
         </VBox>
     </top>
    <center>
-      <Pane fx:id="pane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="pane" prefHeight="537.0" prefWidth="690.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

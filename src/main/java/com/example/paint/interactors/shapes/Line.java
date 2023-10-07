@@ -1,10 +1,12 @@
 package com.example.paint.interactors.shapes;
 
+import com.example.paint.interactors.dragging.LineDragging;
 import com.example.paint.interactors.painting.Brush;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Shape;
 
-public class Line extends ShapeWithoutSize{
-    public void draw(Pane pane, Brush brush) {
+public class Line extends ShapeWithoutSize {
+    public Shape draw(Pane pane, Brush brush) {
         javafx.scene.shape.Line line = new javafx.scene.shape.Line();
         line.setStartX(this.coordinate1.getX());
         line.setStartY(this.coordinate1.getY());
@@ -18,5 +20,6 @@ public class Line extends ShapeWithoutSize{
 
         pane.getChildren().add(line);
         System.out.println("Log - x1: " + this.coordinate1.getX() + " y1: " + this.coordinate1.getY() + " x2: " + this.coordinate2.getX() + " y2: " + this.coordinate2.getY());
+        return line;
     }
 }

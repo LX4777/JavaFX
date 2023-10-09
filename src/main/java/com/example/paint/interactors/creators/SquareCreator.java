@@ -10,7 +10,6 @@ public class SquareCreator extends ShapeCreator<Square> {
         shape.setWidth(shape.getHeight());
         rectangle.setWidth(shape.getWidth());
         rectangle.setHeight(shape.getHeight());
-        rectangle.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());
         return rectangle;
     }
 }

@@ -11,8 +11,6 @@ public class LineCreator extends ShapeCreator<Line> {
         line.setEndX(shape.getCoordinate2().getX());
         line.setEndY(shape.getCoordinate2().getY());
 
-        line.relocate(shape.getStartPoint().getX(), shape.getStartPoint().getY());
-
         System.out.println("Log - x1: " + shape.getCoordinate1().getX() + " y1: " + shape.getCoordinate1().getY() + " x2: " + shape.getCoordinate2().getX() + " y2: " + shape.getCoordinate2().getY());
         return line;
     }

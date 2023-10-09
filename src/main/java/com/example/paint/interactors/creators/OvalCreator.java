@@ -12,7 +12,6 @@ public class OvalCreator extends ShapeCreator<Oval> {
         ellipse.setCenterY(shape.getStartCoordinate().getY());
         ellipse.setRadiusX(shape.getWidth() / 2);
         ellipse.setRadiusY(shape.getHeight() / 2);
-        ellipse.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());
 
         return ellipse;
     }

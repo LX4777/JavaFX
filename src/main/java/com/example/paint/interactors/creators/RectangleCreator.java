@@ -8,7 +8,6 @@ public class RectangleCreator extends ShapeCreator<Rectangle> {
     public javafx.scene.shape.Rectangle make(Rectangle shape) {
         rectangle.setWidth(shape.getWidth());
         rectangle.setHeight(shape.getHeight());
-        rectangle.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());
         return rectangle;
     }
 }

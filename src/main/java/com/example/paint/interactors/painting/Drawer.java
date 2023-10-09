@@ -50,6 +50,7 @@ public class Drawer {
         newShape.setFill(brush.getFillColor());
         newShape.setStroke(brush.getColor());
         newShape.setStrokeWidth(brush.getWidth());
+        newShape.relocate(shape.getStartPoint().getX(), shape.getStartPoint().getY());
         pane.getChildren().add(newShape);
 
 //        MorphToLine.morph(pane, newShape, shape);

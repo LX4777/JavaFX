@@ -8,7 +8,6 @@ public class CircleCreator extends ShapeCreator<Circle> {
     public javafx.scene.shape.Circle make(com.example.paint.interactors.shapes.Circle shape) {
         shape.setWidth(shape.getHeight());
         circle.setRadius(shape.getWidth() / 2);
-        circle.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());
         return circle;
     }
 }

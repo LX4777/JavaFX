@@ -42,9 +42,12 @@ public class Drawer {
         Shape shape = this.shapeFactory.createShape(shapeType);
         shape.setPoints(this.point1.getX(), this.point1.getY(), this.point2.getX(), this.point2.getY());
         ShapeCreator shapeCreator = ShapeCreatorFactory.make(shapeType);
-        javafx.scene.shape.Shape newShape = shapeCreator.make(shape, brush);
+        javafx.scene.shape.Shape newShape = shapeCreator.make(shape);
         IDragging dragging = DraggingFactory.createDraggingEffect(shapeType);
         dragging.setDragAndDrop(newShape);
+        newShape.setFill(brush.getFillColor());
+        newShape.setStroke(brush.getColor());
+        newShape.setStrokeWidth(brush.getWidth());
         pane.getChildren().add(newShape);
 
 //        MorphToLine.morph(pane, newShape, shape);

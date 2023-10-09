@@ -6,13 +6,10 @@ import javafx.scene.shape.Rectangle;
 public class SquareCreator extends ShapeCreator<Square> {
     javafx.scene.shape.Rectangle rectangle = new javafx.scene.shape.Rectangle();
 
-    public Rectangle make(Square shape, Brush brush) {
+    public Rectangle make(Square shape) {
         shape.setWidth(shape.getHeight());
         rectangle.setWidth(shape.getWidth());
         rectangle.setHeight(shape.getHeight());
-        rectangle.setFill(brush.getFillColor());
-        rectangle.setStrokeWidth(brush.getWidth());
-        rectangle.setStroke(brush.getColor());
         rectangle.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());
         return rectangle;
     }

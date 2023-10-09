@@ -53,8 +53,6 @@ public class Drawer {
         newShape.relocate(shape.getStartPoint().getX(), shape.getStartPoint().getY());
         pane.getChildren().add(newShape);
 
-//        MorphToLine.morph(pane, newShape, shape);
-
         return newShape;
     }
 }

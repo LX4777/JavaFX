@@ -2,10 +2,10 @@ package com.example.paint.interactors.painting;
 
 import com.example.paint.interactors.shapes.Line;
 
-public class DrawLine extends Draw<Line> {
+public class LineCreator extends ShapeCreator<Line> {
     javafx.scene.shape.Line line = new javafx.scene.shape.Line();
 
-    public javafx.scene.shape.Line draw(Line shape, Brush brush) {
+    public javafx.scene.shape.Line make(Line shape, Brush brush) {
         line.setStartX(shape.getCoordinate1().getX());
         line.setStartY(shape.getCoordinate1().getY());
         line.setEndX(shape.getCoordinate2().getX());

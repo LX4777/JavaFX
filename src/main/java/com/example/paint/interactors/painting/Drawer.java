@@ -41,8 +41,8 @@ public class Drawer {
     public javafx.scene.shape.Shape draw(ShapeType shapeType) {
         Shape shape = this.shapeFactory.createShape(shapeType);
         shape.setPoints(this.point1.getX(), this.point1.getY(), this.point2.getX(), this.point2.getY());
-        Draw drawShape = DrawFactory.createDraw(shapeType);
-        javafx.scene.shape.Shape newShape = drawShape.draw(shape, brush);
+        ShapeCreator shapeCreator = ShapeCreatorFactory.make(shapeType);
+        javafx.scene.shape.Shape newShape = shapeCreator.make(shape, brush);
         IDragging dragging = DraggingFactory.createDraggingEffect(shapeType);
         dragging.setDragAndDrop(newShape);
         pane.getChildren().add(newShape);

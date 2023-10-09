@@ -3,11 +3,11 @@ package com.example.paint.interactors.painting;
 import com.example.paint.interactors.shapes.Oval;
 import javafx.scene.shape.Ellipse;
 
-public class DrawOval extends Draw<Oval> {
+public class OvalCreator extends ShapeCreator<Oval> {
     javafx.scene.shape.Ellipse ellipse = new javafx.scene.shape.Ellipse();
 
     @Override
-    public Ellipse draw(Oval shape, Brush brush) {
+    public Ellipse make(Oval shape, Brush brush) {
         ellipse.setCenterX(shape.getStartCoordinate().getX());
         ellipse.setCenterY(shape.getStartCoordinate().getY());
         ellipse.setRadiusX(shape.getWidth() / 2);

@@ -1,13 +1,13 @@
 package com.example.paint.interactors.painting;
 
 import com.example.paint.interactors.shapes.Oval;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.Ellipse;
 
 public class DrawOval extends Draw<Oval> {
     javafx.scene.shape.Ellipse ellipse = new javafx.scene.shape.Ellipse();
+
     @Override
-    public Shape draw(Pane pane, Oval shape, Brush brush) {
+    public Ellipse draw(Oval shape, Brush brush) {
         ellipse.setCenterX(shape.getStartCoordinate().getX());
         ellipse.setCenterY(shape.getStartCoordinate().getY());
         ellipse.setRadiusX(shape.getWidth() / 2);
@@ -17,7 +17,6 @@ public class DrawOval extends Draw<Oval> {
         ellipse.setStrokeWidth(brush.getWidth());
         ellipse.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());
 
-        pane.getChildren().add(ellipse);
         return ellipse;
     }
 }

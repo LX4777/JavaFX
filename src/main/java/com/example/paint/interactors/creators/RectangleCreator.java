@@ -1,13 +1,11 @@
-package com.example.paint.interactors.painting;
+package com.example.paint.interactors.creators;
 
-import com.example.paint.interactors.shapes.Square;
-import javafx.scene.shape.Rectangle;
+import com.example.paint.interactors.shapes.Rectangle;
 
-public class SquareCreator extends ShapeCreator<Square> {
+public class RectangleCreator extends ShapeCreator<Rectangle> {
     javafx.scene.shape.Rectangle rectangle = new javafx.scene.shape.Rectangle();
 
-    public Rectangle make(Square shape) {
-        shape.setWidth(shape.getHeight());
+    public javafx.scene.shape.Rectangle make(Rectangle shape) {
         rectangle.setWidth(shape.getWidth());
         rectangle.setHeight(shape.getHeight());
         rectangle.relocate(shape.getStartCoordinate().getX(), shape.getStartCoordinate().getY());

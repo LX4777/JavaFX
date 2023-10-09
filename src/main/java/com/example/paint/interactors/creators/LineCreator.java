@@ -1,4 +1,4 @@
-package com.example.paint.interactors.painting;
+package com.example.paint.interactors.creators;
 
 import com.example.paint.interactors.shapes.Line;
 

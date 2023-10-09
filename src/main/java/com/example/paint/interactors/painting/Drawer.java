@@ -1,5 +1,7 @@
 package com.example.paint.interactors.painting;
 
+import com.example.paint.interactors.creators.ShapeCreator;
+import com.example.paint.interactors.creators.ShapeCreatorFactory;
 import com.example.paint.interactors.dragging.DraggingFactory;
 import com.example.paint.interactors.dragging.IDragging;
 import com.example.paint.interactors.shapes.Coordinate;

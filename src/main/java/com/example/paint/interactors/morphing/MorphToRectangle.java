@@ -36,7 +36,7 @@ public class MorphToRectangle extends MorphTo {
             double minSize = Math.min(rectangle.getWidth(), rectangle.getHeight());
             frame = new KeyFrame(
                     Duration.seconds(3),
-                    new KeyValue(rectangle.widthProperty(), maxSize),
+                    new KeyValue(rectangle.widthProperty(), maxSize == minSize ? maxSize*1.5: maxSize),
                     new KeyValue(rectangle.heightProperty(), minSize)
             );
         } else if (shape instanceof Line line) {

@@ -9,7 +9,7 @@ public abstract class Shape {
         setPoint2(x2, y2);
     }
 
-    public Coordinate getStartPoint() {
+    public Coordinate calculateStartPoint() {
         double x, y;
         if (this.coordinate2.getX() > this.coordinate1.getX()) {
             if (this.coordinate2.getY() > this.coordinate1.getY()) {

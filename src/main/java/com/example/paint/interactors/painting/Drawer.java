@@ -50,7 +50,7 @@ public class Drawer {
         newShape.setFill(brush.getFillColor());
         newShape.setStroke(brush.getColor());
         newShape.setStrokeWidth(brush.getWidth());
-        newShape.relocate(shape.getStartPoint().getX(), shape.getStartPoint().getY());
+        newShape.relocate(shape.calculateStartPoint().getX(), shape.calculateStartPoint().getY());
         pane.getChildren().add(newShape);
 
         return newShape;

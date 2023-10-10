@@ -46,4 +46,9 @@ public abstract class Shape {
     public Coordinate getCoordinate2() {
         return coordinate2;
     }
+
+    @Override
+    public String toString() {
+        return "coordinate1=" + coordinate1 + ", coordinate2=" + coordinate2;
+    }
 }

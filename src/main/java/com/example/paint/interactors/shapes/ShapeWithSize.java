@@ -40,11 +40,6 @@ public abstract class ShapeWithSize extends Shape {
 
     @Override
     public String toString() {
-        return "coordinate1.X: " + this.coordinate1.getX()
-                + " coordinate1.Y: " + this.coordinate1.getY()
-                + " coordinate2.X: " + this.coordinate2.getX()
-                + " coordinate2.Y: " + this.coordinate2.getY()
-                + " width: " + this.width
-                + " height: " + this.height;
+        return super.toString() + ", width=" + this.width + ", height=" + this.height + ", startCoordinate=" + this.startCoordinate;
     }
 }

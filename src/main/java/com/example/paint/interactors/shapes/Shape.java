@@ -1,5 +1,7 @@
 package com.example.paint.interactors.shapes;
 
+import java.util.Objects;
+
 public abstract class Shape {
     protected Coordinate coordinate1;
     protected Coordinate coordinate2;
@@ -50,5 +52,18 @@ public abstract class Shape {
     @Override
     public String toString() {
         return "coordinate1=" + coordinate1 + ", coordinate2=" + coordinate2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shape shape = (Shape) o;
+        return Objects.equals(coordinate1, shape.coordinate1) && Objects.equals(coordinate2, shape.coordinate2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coordinate1, coordinate2);
     }
 }

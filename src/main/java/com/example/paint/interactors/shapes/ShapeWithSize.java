@@ -1,5 +1,7 @@
 package com.example.paint.interactors.shapes;
 
+import java.util.Objects;
+
 public abstract class ShapeWithSize extends Shape {
     protected Coordinate startCoordinate;
     protected double width;
@@ -41,5 +43,18 @@ public abstract class ShapeWithSize extends Shape {
     @Override
     public String toString() {
         return super.toString() + ", width=" + this.width + ", height=" + this.height + ", startCoordinate=" + this.startCoordinate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShapeWithSize that)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(width, that.width) == 0 && Double.compare(height, that.height) == 0 && Objects.equals(startCoordinate, that.startCoordinate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), startCoordinate, width, height);
     }
 }

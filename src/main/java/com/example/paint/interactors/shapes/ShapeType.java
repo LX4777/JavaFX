@@ -22,7 +22,7 @@ public enum ShapeType {
         return label;
     }
 
-    public static ShapeType getLatinName(String string){
+    public static ShapeType getByLatinName(String string) {
         return ShapeType.valueOf(string);
     }
 }

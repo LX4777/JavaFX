@@ -8,6 +8,7 @@
         <VBox>
             <MenuBar>
                 <Menu text="Файл">
+                    <MenuItem onAction="#onClear" text="Очистить"/>
                     <MenuItem onAction="#onSave" text="Сохранить в файл"/>
                     <MenuItem onAction="#onLoad" text="Загрузить из файла"/>
                     <MenuItem onAction="#onExit" text="Выход"/>

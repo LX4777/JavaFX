@@ -8,6 +8,7 @@ import com.example.paint.interactors.shapes.Coordinate;
 import com.example.paint.interactors.shapes.Shape;
 import com.example.paint.interactors.shapes.ShapeFactory;
 import com.example.paint.interactors.shapes.ShapeType;
+import com.example.paint.interactors.states.EditorStateSingleton;
 import javafx.scene.layout.Pane;
 
 public class Drawer {
@@ -43,15 +44,28 @@ public class Drawer {
     public javafx.scene.shape.Shape draw(ShapeType shapeType) {
         Shape shape = this.shapeFactory.createShape(shapeType);
         shape.setPoints(this.point1.getX(), this.point1.getY(), this.point2.getX(), this.point2.getY());
+        shape.setColor(this.brush.getColor());
+        shape.setStrokeWidth(this.brush.getWidth());
+        shape.setFillColor(this.brush.getFillColor());
+
+        System.out.println("Нарисовал: " + shape);
+
+        EditorStateSingleton editorStateSingleton =  EditorStateSingleton.getInstance();
+        editorStateSingleton.addShape(shape);
+
         ShapeCreator shapeCreator = ShapeCreatorFactory.make(shapeType);
         javafx.scene.shape.Shape newShape = shapeCreator.make(shape);
+
         IDragging dragging = DraggingFactory.createDraggingEffect(shapeType);
         dragging.setDragAndDrop(newShape);
+
         newShape.setFill(brush.getFillColor());
         newShape.setStroke(brush.getColor());
         newShape.setStrokeWidth(brush.getWidth());
         newShape.relocate(shape.calculateStartPoint().getX(), shape.calculateStartPoint().getY());
         pane.getChildren().add(newShape);
+
+        System.out.println("Pane после отрисовки: " + pane.getChildren());
 
         return newShape;
     }

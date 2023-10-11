@@ -13,11 +13,15 @@ public class EditorStateSingleton {
 
     private EditorStateSingleton() {
         this.stateType = StateType.DRAWING;
-        createdShapes.put("Circle", new ArrayList<>());
-        createdShapes.put("Square", new ArrayList<>());
-        createdShapes.put("Oval", new ArrayList<>());
-        createdShapes.put("Line", new ArrayList<>());
-        createdShapes.put("Rectangle", new ArrayList<>());
+        setDefaultCreatedShapes();
+    }
+
+    private void setDefaultCreatedShapes() {
+        createdShapes.put(String.valueOf(ShapeType.CIRCLE), new ArrayList<>());
+        createdShapes.put(String.valueOf(ShapeType.SQUARE), new ArrayList<>());
+        createdShapes.put(String.valueOf(ShapeType.OVAL), new ArrayList<>());
+        createdShapes.put(String.valueOf(ShapeType.LINE), new ArrayList<>());
+        createdShapes.put(String.valueOf(ShapeType.RECTANGLE), new ArrayList<>());
     }
 
     public static EditorStateSingleton getInstance() {
@@ -37,22 +41,22 @@ public class EditorStateSingleton {
 
     public void addShape(Shape shape) {
         if (shape instanceof Circle) {
-            ArrayList<Shape> shapes = createdShapes.get("Circle");
+            ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.CIRCLE));
             shapes.add(shape);
         } else if (shape instanceof Rectangle) {
-            ArrayList<Shape> shapes = createdShapes.get("Rectangle");
+            ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.RECTANGLE));
             shapes.add(shape);
         } else if (shape instanceof Oval) {
-            ArrayList<Shape> shapes = createdShapes.get("Oval");
+            ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.OVAL));
             shapes.add(shape);
         } else if (shape instanceof Line) {
-            ArrayList<Shape> shapes = createdShapes.get("Line");
+            ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.LINE));
             shapes.add(shape);
         } else if (shape instanceof Square) {
-            ArrayList<Shape> shapes = createdShapes.get("Square");
+            ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.SQUARE));
             shapes.add(shape);
         }
-        System.out.println(createdShapes);
+        System.out.println("Стейт: " + createdShapes);
     }
 
     public void setCreatedShapes(HashMap<String, ArrayList<Shape>> createdShapes) {
@@ -61,5 +65,9 @@ public class EditorStateSingleton {
 
     public HashMap<String, ArrayList<Shape>> getCreatedShapes() {
         return createdShapes;
+    }
+
+    public void clearShapes() {
+        setDefaultCreatedShapes();
     }
 }

@@ -7,6 +7,7 @@ import com.example.paint.interactors.shapes.Coordinate;
 import com.example.paint.interactors.shapes.ShapeType;
 import com.example.paint.interactors.states.EditorStateSingleton;
 import com.example.paint.interactors.states.StateType;
+import com.example.paint.repository.JsonParser;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -14,6 +15,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
 
 public class PaintController {
     @FXML
@@ -33,16 +36,12 @@ public class PaintController {
 
     @FXML
     private ChoiceBox<ShapeType> shapesSelect;
+    final EditorStateSingleton editorState = EditorStateSingleton.getInstance();
 
     public void initialize() {
         InitializeShapesSelectAction.start(shapesSelect);
 
-        pane.setOnMouseDragged(e -> {
-        });
-
         Drawer drawer = new Drawer();
-
-        final EditorStateSingleton editorState = EditorStateSingleton.getInstance();
 
         drag.setOnMouseClicked(e -> {
             editorState.setStateType(drag.isSelected() ? StateType.DRAG_AND_DROP : StateType.DRAWING);
@@ -64,8 +63,13 @@ public class PaintController {
     }
 
     @FXML
-    public void onSnapshot() {
-//        Snapshot.make(canvas);
+    public void onSave() throws IOException {
+        JsonParser.save();
+    }
+
+    @FXML
+    public void onLoad() throws IOException {
+        JsonParser.load();
     }
 
     @FXML

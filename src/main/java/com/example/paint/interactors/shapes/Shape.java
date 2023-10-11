@@ -6,7 +6,7 @@ import java.util.Objects;
 public abstract class Shape {
     protected Coordinate coordinate1;
     protected Coordinate coordinate2;
-    protected double width;
+    protected double strokeWidth;
     protected Color color;
     protected Color fillColor;
 
@@ -56,7 +56,7 @@ public abstract class Shape {
 
     @Override
     public String toString() {
-        return "coordinate1=" + coordinate1 + ", coordinate2=" + coordinate2 + ", width=" + width + ", color=" + color + ", fillColor=" + fillColor;
+        return "coordinate1=" + coordinate1 + ", coordinate2=" + coordinate2 + ", strokeWidth=" + strokeWidth + ", color=" + color + ", fillColor=" + fillColor;
     }
 
     @Override
@@ -72,16 +72,16 @@ public abstract class Shape {
         return Objects.hash(coordinate1, coordinate2);
     }
 
-    public void setWidth(double width) {
-        this.width = width;
+    public void setStrokeWidth(double strokeWidth) {
+        this.strokeWidth = strokeWidth;
     }
 
     public void setColor(Color color) {
         this.color = color;
     }
 
-    public double getWidth() {
-        return width;
+    public double getStrokeWidth() {
+        return strokeWidth;
     }
 
     public Color getColor() {

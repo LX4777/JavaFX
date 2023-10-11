@@ -18,7 +18,7 @@ public class ShapesRestorer {
     }
 
     public static void restore(Pane pane, HashMap<String, ArrayList<Shape>> shapes) {
-        pane.getChildren().removeAll();
+        pane.getChildren().clear();
 
         shapes.forEach((key, shapeList) -> {
             ShapeType type = ShapeType.getByLatinName(key);

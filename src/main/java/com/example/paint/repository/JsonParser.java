@@ -12,20 +12,24 @@ import java.util.HashMap;
 
 public class JsonParser {
     private static String defaultFilePath = "saves/save.json";
+    private static final EditorStateSingleton editorStateSingleton = EditorStateSingleton.getInstance();
 
     public static void save() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        EditorStateSingleton editorStateSingleton = EditorStateSingleton.getInstance();
         objectMapper.writeValue(new File(JsonParser.defaultFilePath), editorStateSingleton.getCreatedShapes());
     }
 
-    public static void load() throws IOException {
+    public static HashMap<String, ArrayList<Shape>> load() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        EditorStateSingleton editorStateSingleton = EditorStateSingleton.getInstance();
         TypeReference<HashMap<String, ArrayList<Shape>>> typeRef = new TypeReference<>() {
         };
         objectMapper.registerModule(new ShapeModule());
-        editorStateSingleton.setCreatedShapes(objectMapper.readValue(new File(JsonParser.defaultFilePath), typeRef));
+
+        return objectMapper.readValue(new File(JsonParser.defaultFilePath), typeRef);
+    }
+
+    public static void loadToState() throws IOException {
+        editorStateSingleton.setCreatedShapes(load());
     }
 
     public static void setDefaultFilePath(String defaultFilePath) {

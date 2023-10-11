@@ -1,10 +1,15 @@
 package com.example.paint.interactors.shapes;
 
+import javafx.scene.paint.Color;
 import java.util.Objects;
 
 public abstract class Shape {
     protected Coordinate coordinate1;
     protected Coordinate coordinate2;
+    protected double width;
+    protected Color color;
+    protected Color fillColor;
+
 
     public void setPoints(double x1, double y1, double x2, double y2) {
         setPoint1(x1, y1);
@@ -51,7 +56,7 @@ public abstract class Shape {
 
     @Override
     public String toString() {
-        return "coordinate1=" + coordinate1 + ", coordinate2=" + coordinate2;
+        return "coordinate1=" + coordinate1 + ", coordinate2=" + coordinate2 + ", width=" + width + ", color=" + color + ", fillColor=" + fillColor;
     }
 
     @Override
@@ -65,5 +70,29 @@ public abstract class Shape {
     @Override
     public int hashCode() {
         return Objects.hash(coordinate1, coordinate2);
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setFillColor(Color fillColor) {
+        this.fillColor = fillColor;
+    }
+
+    public Color getFillColor() {
+        return fillColor;
     }
 }

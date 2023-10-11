@@ -21,4 +21,8 @@ public enum ShapeType {
     public String getLabel() {
         return label;
     }
+
+    public static ShapeType getLatinName(String string){
+        return ShapeType.valueOf(string);
+    }
 }

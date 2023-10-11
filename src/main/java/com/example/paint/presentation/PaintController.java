@@ -74,7 +74,6 @@ public class PaintController {
     @FXML
     public void onLoad() throws IOException {
         editorState.clearShapes();
-        pane.getChildren().removeAll();
         System.out.println("Содержимое панели" + pane.getChildren());
 
         HashMap<String, ArrayList<Shape>> shapes = JsonParser.load();
@@ -84,5 +83,11 @@ public class PaintController {
     @FXML
     public void onExit() {
         Platform.exit();
+    }
+
+    @FXML
+    public void onClear() {
+        pane.getChildren().clear();
+        editorState.clearShapes();
     }
 }

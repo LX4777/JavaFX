@@ -9,6 +9,7 @@ public class ShapeFactory {
             case OVAL -> new Oval();
             case RECTANGLE -> new Rectangle();
             case SQUARE -> new Square();
+            case STAR -> new Star();
         };
     }
 }

@@ -20,7 +20,7 @@
                     <ColorPicker fx:id="colorPicker"/>
                     <ChoiceBox fx:id="shapesSelect" prefWidth="150.0"/>
                     <CheckBox fx:id="fill" text="Заливка"/>
-                    <CheckBox fx:id="drag" text="Перестаскивание"/>
+                    <CheckBox fx:id="dragCheckBox" text="Перестаскивание"/>
                 </HBox>
             </ToolBar>
         </VBox>

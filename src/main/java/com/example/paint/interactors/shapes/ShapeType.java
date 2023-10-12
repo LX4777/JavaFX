@@ -7,7 +7,8 @@ public enum ShapeType {
     CIRCLE("Круг"),
     OVAL("Овал"),
     SQUARE("Квадрат"),
-    RECTANGLE("Прямоугольник");
+    RECTANGLE("Прямоугольник"),
+    STAR("Звезда");
 
     private final String label;
 

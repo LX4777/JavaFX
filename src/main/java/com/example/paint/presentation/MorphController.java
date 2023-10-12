@@ -32,8 +32,8 @@ public class MorphController {
     private Button startMorphButton;
 
     public void initialize() {
-        InitializeShapesSelectAction.start(shapesSelect);
-        InitializeShapesSelectAction.start(morphShapesSelect);
+        InitializeShapesSelectAction.run(shapesSelect);
+        InitializeShapesSelectAction.run(morphShapesSelect);
 
         startMorphButton.setOnAction(e -> {
             pane.getChildren().removeAll(pane.getChildren());

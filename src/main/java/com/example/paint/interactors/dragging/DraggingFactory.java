@@ -10,6 +10,7 @@ public class DraggingFactory {
             case OVAL -> new EllipseDragging();
             case RECTANGLE -> new RectangleDragging();
             case SQUARE -> new SquareDragging();
+            case STAR -> new StarDragging();
         };
     }
 }

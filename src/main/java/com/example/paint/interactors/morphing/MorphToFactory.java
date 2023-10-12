@@ -10,6 +10,7 @@ public class MorphToFactory {
             case OVAL -> new MorphToOval();
             case RECTANGLE -> new MorphToRectangle();
             case SQUARE -> new MorphToSquare();
+            case STAR -> new MorphToStar();
         };
     }
 }

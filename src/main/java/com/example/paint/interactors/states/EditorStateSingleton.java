@@ -74,4 +74,12 @@ public class EditorStateSingleton {
     public void clearShapes() {
         setDefaultCreatedShapes();
     }
+
+    public boolean isDrawing() {
+        return this.stateType == StateType.DRAWING;
+    }
+
+    public boolean isDragging() {
+        return this.stateType == StateType.DRAG_AND_DROP;
+    }
 }

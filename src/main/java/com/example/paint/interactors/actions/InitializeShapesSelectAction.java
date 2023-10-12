@@ -5,10 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tooltip;
-import javafx.util.StringConverter;
 
 public class InitializeShapesSelectAction {
-    public static void start(ChoiceBox<ShapeType> shapesSelect)
+    public static void run(ChoiceBox<ShapeType> shapesSelect)
     {
         ObservableList<ShapeType> figures = FXCollections.observableArrayList(ShapeType.values());
 

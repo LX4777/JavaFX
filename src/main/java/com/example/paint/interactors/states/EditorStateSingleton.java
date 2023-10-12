@@ -22,6 +22,7 @@ public class EditorStateSingleton {
         createdShapes.put(String.valueOf(ShapeType.OVAL), new ArrayList<>());
         createdShapes.put(String.valueOf(ShapeType.LINE), new ArrayList<>());
         createdShapes.put(String.valueOf(ShapeType.RECTANGLE), new ArrayList<>());
+        createdShapes.put(String.valueOf(ShapeType.STAR), new ArrayList<>());
     }
 
     public static EditorStateSingleton getInstance() {
@@ -54,6 +55,9 @@ public class EditorStateSingleton {
             shapes.add(shape);
         } else if (shape instanceof Square) {
             ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.SQUARE));
+            shapes.add(shape);
+        } else if (shape instanceof Star) {
+            ArrayList<Shape> shapes = createdShapes.get(String.valueOf(ShapeType.STAR));
             shapes.add(shape);
         }
         System.out.println("Стейт: " + createdShapes);

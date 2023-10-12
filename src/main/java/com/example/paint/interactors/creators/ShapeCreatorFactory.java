@@ -10,6 +10,7 @@ public class ShapeCreatorFactory {
             case OVAL -> new OvalCreator();
             case RECTANGLE -> new RectangleCreator();
             case SQUARE -> new SquareCreator();
+            case STAR -> new StarCreator();
         };
     }
 }

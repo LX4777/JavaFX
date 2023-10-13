@@ -1,7 +1,7 @@
 package com.example.paint.interactors.creators;
 
-import com.example.paint.interactors.shapes.Coordinate;
 import com.example.paint.interactors.shapes.Star;
+import javafx.collections.ObservableList;
 import javafx.scene.shape.Polygon;
 
 public class StarCreator extends ShapeCreator<Star> {
@@ -9,20 +9,33 @@ public class StarCreator extends ShapeCreator<Star> {
 
     public Polygon make(Star shape) {
         shape.setWidth(shape.getHeight());
-        Coordinate start = shape.getStartCoordinate();
 
-        star.getPoints().addAll(new Double[]{
-                shape.getWidth() / 2 + start.getX(), start.getY(),
-                shape.getWidth() / 3 * 2 + start.getX(), shape.getHeight() / 3 + start.getY(),
-                shape.getWidth() + start.getX(), shape.getHeight() / 3 + start.getY(),
-                shape.getWidth() / 5 * 4 + start.getX(), shape.getHeight() / 2 + start.getY(),
-                shape.getWidth() + start.getX(), shape.getHeight() + start.getY(),
-                shape.getWidth() / 2 + start.getX(), shape.getHeight() / 3 * 2 + start.getY(),
-                start.getX(), shape.getHeight() + start.getY(),
-                shape.getWidth() / 5 + start.getX(), shape.getWidth() / 2 + start.getY(),
-                start.getX(), shape.getHeight() / 3 + start.getY(),
-                shape.getWidth() / 3 + start.getX(), shape.getHeight() / 3 + start.getY()
-        });
+        double starSize = 200; // Размер звезды
+
+        // Создаем объект класса Polygon
+        Polygon star = new Polygon();
+        ObservableList<Double> points = star.getPoints();
+
+        calculateStarPoints(points, starSize);
+
         return star;
+    }
+
+    private void calculateStarPoints(ObservableList<Double> points, double size) {
+        double centerX = size / 2;
+        double centerY = size / 2;
+        double outerRadius = size / 2;
+        double innerRadius = size / 4;
+
+        for (int i = 0; i < 5; i++) {
+            double outerAngle = Math.PI * 2 * i / 5 - Math.PI / 2;
+            double innerAngle = outerAngle + Math.PI / 5;
+            points.addAll(
+                    centerX + Math.cos(outerAngle) * outerRadius,
+                    centerY + Math.sin(outerAngle) * outerRadius,
+                    centerX + Math.cos(innerAngle) * innerRadius,
+                    centerY + Math.sin(innerAngle) * innerRadius
+            );
+        }
     }
 }

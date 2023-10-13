@@ -1,17 +1,24 @@
 package com.example.paint.interactors.creators;
 
 import com.example.paint.interactors.shapes.Line;
+import javafx.scene.shape.Polygon;
 
 public class LineCreator extends ShapeCreator<Line> {
-    javafx.scene.shape.Line line = new javafx.scene.shape.Line();
+    Polygon polygon = new Polygon();
 
-    public javafx.scene.shape.Line make(Line shape) {
-        line.setStartX(shape.getCoordinate1().getX());
-        line.setStartY(shape.getCoordinate1().getY());
-        line.setEndX(shape.getCoordinate2().getX());
-        line.setEndY(shape.getCoordinate2().getY());
+    protected static final int POINT_COUNT = 100;
 
-        System.out.println("Log - x1: " + shape.getCoordinate1().getX() + " y1: " + shape.getCoordinate1().getY() + " x2: " + shape.getCoordinate2().getX() + " y2: " + shape.getCoordinate2().getY());
-        return line;
+    public Polygon make(Line shape) {
+        double startX = shape.getCoordinate1().getX();
+        double startY = shape.getCoordinate1().getY();
+        double endX = shape.getCoordinate2().getX();
+        double endY = shape.getCoordinate2().getY();
+
+        for (int i = 0; i <= POINT_COUNT; i++) {
+            double x = startX + (endX - startX) * i / POINT_COUNT;
+            double y = startY + (endY - startY) * i / POINT_COUNT;
+            polygon.getPoints().addAll(x, y);
+        }
+        return polygon;
     }
 }

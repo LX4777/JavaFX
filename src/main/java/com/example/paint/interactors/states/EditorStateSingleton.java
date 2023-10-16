@@ -17,12 +17,9 @@ public class EditorStateSingleton {
     }
 
     private void setDefaultCreatedShapes() {
-        createdShapes.put(String.valueOf(ShapeType.CIRCLE), new ArrayList<>());
-        createdShapes.put(String.valueOf(ShapeType.SQUARE), new ArrayList<>());
-        createdShapes.put(String.valueOf(ShapeType.OVAL), new ArrayList<>());
-        createdShapes.put(String.valueOf(ShapeType.LINE), new ArrayList<>());
-        createdShapes.put(String.valueOf(ShapeType.RECTANGLE), new ArrayList<>());
-        createdShapes.put(String.valueOf(ShapeType.STAR), new ArrayList<>());
+        for (ShapeType shapeType : ShapeType.values()) {
+            createdShapes.put(shapeType.name(), new ArrayList<Shape>());
+        }
     }
 
     public static EditorStateSingleton getInstance() {

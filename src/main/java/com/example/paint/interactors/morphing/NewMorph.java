@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewMorph {
-    private List<Polygon> interpolatedPolygons = new ArrayList<>();
-    private int numSteps = 100; // количество этапов преобразования
+    private final List<Polygon> interpolatedPolygons = new ArrayList<>();
+    private final int numSteps = 100; // количество этапов преобразования
 
     public void make(Pane root, Polygon startPolygon, Polygon endPolygon, int desiredStep) {
         interpolatePoints(startPolygon, endPolygon);
@@ -45,28 +45,24 @@ public class NewMorph {
         int endSize = endPolygon.getPoints().size() / 2;
         List<Point2D> startPoints = getPolygonPoints(startPolygon);
         List<Point2D> endPoints = getPolygonPoints(endPolygon);
-
         double[] startX = new double[startSize];
         double[] startY = new double[startSize];
         double[] endX = new double[endSize];
         double[] endY = new double[endSize];
-
         for (int i = 0; i < startSize; i++) {
             startX[i] = startPoints.get(i).getX();
             startY[i] = startPoints.get(i).getY();
         }
-
         for (int i = 0; i < endSize; i++) {
             endX[i] = endPoints.get(i).getX();
             endY[i] = endPoints.get(i).getY();
         }
-
         for (int step = 0; step < numSteps; step++) {
             double t = (double) step / (numSteps - 1); // интерполяционный параметр от 0 до 1
             Polygon interpolated = new Polygon();
-            for (int i = 0; i < Math.max(startSize, endSize); i++) {
-                double x = (1 - t) * (i < startSize ? startX[i] : 0) + t * (i < endSize ? endX[i] : 0); // интерполяция координаты x
-                double y = (1 - t) * (i < startSize ? startY[i] : 0) + t * (i < endSize ? endY[i] : 0); // интерполяция координаты y
+            for (int i = 0; i <= Math.max(startSize, endSize); i++) {
+                double x = (1 - t) * (i < startSize ? startX[i] : startX[startSize - 1]) + t * (i < endSize ? endX[i] : endX[endSize - 1]); // интерполяция координаты x
+                double y = (1 - t) * (i < startSize ? startY[i] : startY[startSize - 1]) + t * (i < endSize ? endY[i] : endY[endSize - 1]); // интерполяция координаты y
                 interpolated.getPoints().addAll(x, y);
             }
             interpolatedPolygons.add(interpolated);

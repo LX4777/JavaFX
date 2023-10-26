@@ -18,7 +18,7 @@ public class CircleCreator extends ShapeCreator<Circle> {
         return polygon;
     }
 
-    protected void addPoints(double centerX, double centerY, double sideX, double sideY) {
+    private void addPoints(double centerX, double centerY, double sideX, double sideY) {
         for (int i = 0; i < POINT_COUNT; i++) {
             double x = centerX
                     + Math.cos(Math.toRadians((double) (i * 360) / POINT_COUNT))

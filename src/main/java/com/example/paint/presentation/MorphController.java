@@ -1,7 +1,7 @@
 package com.example.paint.presentation;
 
 import com.example.paint.interactors.actions.InitializeShapesSelectAction;
-import com.example.paint.interactors.morphing.NewMorph;
+import com.example.paint.interactors.morphing.Morph;
 import com.example.paint.interactors.painting.Brush;
 import com.example.paint.interactors.painting.Drawer;
 import com.example.paint.interactors.shapes.Coordinate;
@@ -10,7 +10,6 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -38,6 +37,7 @@ public class MorphController {
         InitializeShapesSelectAction.run(morphShapesSelect);
 
         startMorphButton.setOnAction(e -> {
+            step.setValue(0);
             pane.getChildren().removeAll(pane.getChildren());
 
             Drawer drawer = new Drawer();
@@ -55,12 +55,12 @@ public class MorphController {
             Shape newShape2 = drawer2.draw(morphShapesSelect.getValue());
 
             pane.getChildren().clear();
-            NewMorph newMorph = new NewMorph();
+            Morph toMorph = new Morph();
 
             step.setOnMouseDragged(event -> {
                 pane.getChildren().clear();
 //                newMorph.make(pane, (Polygon) newShape, (Polygon) newShape2, 0);
-                newMorph.make(pane, (Polygon) newShape, (Polygon) newShape2, (int) step.getValue());
+                toMorph.make(pane, (Polygon) newShape, (Polygon) newShape2, (int) step.getValue());
 //                newMorph.make(pane, (Polygon) newShape, (Polygon) newShape2, 99);
             });
         });

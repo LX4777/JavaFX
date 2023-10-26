@@ -11,7 +11,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewMorph {
+public class Morph {
     private final List<Polygon> interpolatedPolygons = new ArrayList<>();
     private final int numSteps = 100; // количество этапов преобразования
 
@@ -28,11 +28,11 @@ public class NewMorph {
             if (step == desiredStep) {
                 polygon.getPoints().setAll(currentPolygon.getPoints());
             }
-            int currentStep = step; // создаем копию переменной для использования внутри лямбда-выражения
+//            int currentStep = step; // создаем копию переменной для использования внутри лямбда-выражения
             KeyFrame keyFrame = new KeyFrame(Duration.millis(10000 * step), event -> {
-                if (currentStep == desiredStep) {
-                    System.out.println("Этап " + currentStep + ": " + interpolatedPolygons.get(currentStep).getPoints());
-                }
+//                if (currentStep == desiredStep) {
+//                    System.out.println("Этап " + currentStep + ": " + interpolatedPolygons.get(currentStep).getPoints());
+//                }
             });
             timeline.getKeyFrames().add(keyFrame);
         }

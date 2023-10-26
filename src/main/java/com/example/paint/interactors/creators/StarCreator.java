@@ -1,33 +1,27 @@
 package com.example.paint.interactors.creators;
 
 import com.example.paint.interactors.shapes.Star;
-import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
 public class StarCreator extends ShapeCreator<Star> {
     Polygon star = new Polygon();
 
-    private static final int STAR_SIZE = 200; // Размер звезды
+    private static final double STAR_SIZE = 200;
 
     public Polygon make(Star shape) {
-        // Создаем пятиконечную звезду
-        Polygon star = createStar(STAR_SIZE);
-        star.setLayoutX((800 - STAR_SIZE) / 2); // Расположение звезды по горизонтали
-        star.setLayoutY((600 - STAR_SIZE) / 2); // Расположение звезды по вертикали
+        Polygon star = createStar();
+        star.setLayoutX((800 - STAR_SIZE) / 2);
+        star.setLayoutY((600 - STAR_SIZE) / 2);
 
         return star;
     }
 
-    // Метод для создания пятиконечной звезды
-    private Polygon createStar(double size) {
-        Polygon star = new Polygon();
-
-        // Вычисляем координаты вершин звезды
-        double centerX = size / 2;
-        double centerY = size / 2;
-        double outerRadius = size / 2;
-        double innerRadius = size / 4;
+    private Polygon createStar() {
+        double centerX = STAR_SIZE / 2;
+        double centerY = STAR_SIZE / 2;
+        double outerRadius = STAR_SIZE / 2;
+        double innerRadius = STAR_SIZE / 4;
 
         for (int i = 0; i < 5; i++) {
             double outerX = centerX + outerRadius * Math.cos(Math.toRadians(i * 72));
@@ -39,7 +33,7 @@ public class StarCreator extends ShapeCreator<Star> {
             star.getPoints().addAll(innerX, innerY);
         }
 
-        star.setFill(Color.YELLOW); // Цвет звезды
+        star.setFill(Color.YELLOW);
 
         return star;
     }
